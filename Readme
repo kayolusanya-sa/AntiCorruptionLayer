@@ -1,0 +1,7 @@
+
+System could be enhanced to include specific ‘rules’ that were broken
+Faster access persistence
+The trades were for a specific trader and as such the transaction class that models orders and Trades requires this attribute to be captured
+Time window for both rules could be configurable, set currently at 30 mins
+There would be a more efficient way to retrieve pre-existing transactions possibly cached and made stale on a timed basis
+decided to use a DB instead of collections or mock objects as a matter of preference
