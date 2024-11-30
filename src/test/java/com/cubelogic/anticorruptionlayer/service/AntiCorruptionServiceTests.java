@@ -3,6 +3,7 @@ package com.cubelogic.anticorruptionlayer.service;
 import com.cubelogic.anticorruptionlayer.model.Side;
 import com.cubelogic.anticorruptionlayer.model.Transaction;
 import com.cubelogic.anticorruptionlayer.repository.TransactionRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +21,12 @@ public class AntiCorruptionServiceTests {
 
     @Autowired
     private AntiCorruptionService antiCorruptionService;
+
+    @BeforeEach
+    void cleanup() {
+        transactionRepository.deleteAll();
+        transactionRepository.flush();
+    }
 
     @Test
     void analyseTradesTestTimeWindowPositive(){

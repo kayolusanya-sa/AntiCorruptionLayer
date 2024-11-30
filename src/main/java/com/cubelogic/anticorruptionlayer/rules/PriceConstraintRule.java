@@ -14,7 +14,7 @@ public class PriceConstraintRule implements TransactionRule {
     @Autowired
     private TransactionRepository transactionRepository;
 
-    public boolean evaluateTrade(Transaction transaction) {
+    public boolean isSuspiciousTransaction(Transaction transaction) {
         Optional<Transaction> equivalentTransaction =
                 getTransactions(transaction).stream().filter(tran -> isOutsideAcceptablePriceRange(tran,transaction)).findAny();
         return equivalentTransaction.isPresent();
