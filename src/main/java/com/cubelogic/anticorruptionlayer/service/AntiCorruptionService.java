@@ -18,6 +18,6 @@ public class AntiCorruptionService implements TransactionAnalyser{
     }
 
     boolean isSuspicious(Transaction transaction){
-        return rules.stream().anyMatch(rule -> rule.evaluateTrade(transaction));
+        return rules.stream().anyMatch(rule -> rule.isSuspiciousTransaction(transaction));
     }
 }

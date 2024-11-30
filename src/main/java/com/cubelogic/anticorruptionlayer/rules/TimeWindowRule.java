@@ -14,7 +14,7 @@ public class TimeWindowRule implements TransactionRule {
     private TransactionRepository transactionRepository;
     //can't go to the DB for every transaction, needs to be cached
     @Override
-    public boolean evaluateTrade(Transaction transaction) {
+    public boolean isSuspiciousTransaction(Transaction transaction) {
         Optional<Transaction> equivalentTransaction =
                 getTransactions(transaction).stream().filter(tran -> isReversalTrade(tran,transaction)).findAny();
         return equivalentTransaction.isPresent();
